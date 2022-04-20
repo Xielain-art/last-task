@@ -1,11 +1,11 @@
 import Users from "../models/UserModel.js";
 import jwt from "jsonwebtoken";
-import e from "express";
 
 
 export const refreshToken = async (req, res) => {
     try {
         const {refreshToken} = req.cookies
+        console.log(refreshToken, 123)
         if (!refreshToken) {
             return res.sendStatus(401)
         }
@@ -14,6 +14,7 @@ export const refreshToken = async (req, res) => {
                 refresh_token: refreshToken
             }
         })
+        console.log(user)
         if (!user) {
             return res.sendStatus(403)
         }

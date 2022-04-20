@@ -50,7 +50,7 @@ export const Login = async (req, res) => {
         const refreshToken = jwt.sign({userId, name, email}, process.env.SECRET_KEY, {
             expiresIn: '1d'
         })
-        await Users.update({refreshToken}, {
+        await Users.update({refresh_token: refreshToken}, {
             where: {id: userId}
         })
         res.cookie('refreshToken', refreshToken, {

@@ -1,9 +1,8 @@
-require('dotenv').config()
-import {Sequelize} from "sequelize/types/index.js";
+import {Sequelize} from "sequelize";
 
-const db = new Sequelize(process.env.DB_NAME  ,
-    process.env.DB_USER ,
-    process.env.DB_PASSWORD ,
+const db = new Sequelize(process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
     {
         dialect: 'postgres',
         host: process.env.DB_HOST,
